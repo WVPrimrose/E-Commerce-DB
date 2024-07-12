@@ -14,7 +14,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // create a new tag
+  try {
+    const tagData = Tag.create(req.body)
+    res.json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.put('/:id', (req, res) => {
@@ -22,7 +27,17 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  try {
+    const tagData = Tag.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    
+    res.json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

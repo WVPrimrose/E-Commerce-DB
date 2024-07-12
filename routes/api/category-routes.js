@@ -32,8 +32,11 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   try {
-    const categoryData = Category.findByPk(req.params.id);
-    const changeCategoryData = Category.put(req.params.id);
+    const categoryData = Category.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
     res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
@@ -48,11 +51,6 @@ router.delete('/:id', (req, res) => {
       }
     });
     
-    if (!categoryData) {
-      res.status(404).json({ message: 'Please enter a valid id.'});
-      return;
-    }
-
     res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
