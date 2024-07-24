@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   try {
-    const tagData = Tag.findbyPk(req.params.id,{
+    const tagData = Tag.findByPkgit (req.params.id,{
       include: [{ model: Product, through: ProductTag, as: 'tag_name'}]
     });
   
