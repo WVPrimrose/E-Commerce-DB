@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const categoryData = await Category.findByPk();
+    const categoryData = await Category.findByPk(req.params.id);
     res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const categoryData = await Category.update(req.body, {
+    const categoryData = await Category.update(req.params.id, {
       where: {
         id: req.params.id
       }
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const categoryData = await Category.destroy({
+    const categoryData = await Category.destroy(req.params.id, {
       where: {
         id: req.params.id
       }
