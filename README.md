@@ -14,4 +14,4 @@ This video demonstrates the following:
     * product routes: get all, get one, post, update, delete
     * tag routes: get all, get one, post, update, delete
 
-https://drive.google.com/file/d/1nEYyGKPahiGkiVEr11Aea84cSVkI7oYT/view?usp=sharing
+[](https://drive.google.com/file/d/1nEYyGKPahiGkiVEr11Aea84cSVkI7oYT/view?usp=sharing)
